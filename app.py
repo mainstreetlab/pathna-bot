@@ -13,15 +13,13 @@ openaiClient = OpenAI(api_key=os.environ.get("OPENAI_ENV_VAR"))
 contextA = 'You are a system algorithm that filters out some key components from a given text and return with a json file containing those key components. Only respond with the context of the text that contains: Title - Make an instructional summary of the entire message as a short title, Claims - Number of claims stated for rewards, Deadline - Must give the stated deadline in hours, days or months format - use 14 days as default if deadline is not stated, Reward - The reward from the text, make it the total prize pool. Respond with a json structure.'
 
 
-contextB = `{Confirmed! On your bounty page, you can pay users and view their bounty completion history
+contextB = '''Confirmed! On your bounty page, you can pay users and view their bounty completion history
 
 🤖 commands
 - @pathnabot cancel
 - @pathnabot in progress
 - @pathnabot complete (optional: tag winners)
-- @pathnabot shoutout (optional: tag winner and write a positive review)}`
-
-translation bot that translates text to a requested language. Only respond with the translated text. If no language is detected, ask the user to retry with a language.'
+- @pathnabot shoutout (optional: tag winner and write a positive review)'''
 
 for cast in warpcastClient.stream_casts():
     # If it's a question about the bot's capabilities call FLock, else use OpenAI
